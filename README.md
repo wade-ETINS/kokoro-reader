@@ -142,3 +142,8 @@ first if you want to keep it.
 The installed app runs `python\pythonw.exe app\launcher.pyw` with `HF_HUB_OFFLINE=1`, keeps work
 files in `%LOCALAPPDATA%\KokoroReader`, and stops on **Quit** or about 5 minutes after the last tab
 closes.
+
+## Credits
+
+Kokoro Reader uses open models and software from Kokoro (hexgrad), Whisper (OpenAI), Opus-MT
+(Helsinki-NLP), FFmpeg, eSpeak NG and others. See [CREDITS.md](CREDITS.md) for the full list and licences.

@@ -131,3 +131,8 @@ ETINSTW 使用的本機文字轉語音、轉錄、翻譯與影片配音工具。
 
 安裝後的程式以 `python\pythonw.exe app\launcher.pyw` 執行，設定 `HF_HUB_OFFLINE=1`，工作檔案存在
 `%LOCALAPPDATA%\KokoroReader`，按 **結束** 或最後一個分頁關閉約 5 分鐘後會停止。
+
+## 致謝
+
+Kokoro Reader 使用了 Kokoro（hexgrad）、Whisper（OpenAI）、Opus-MT（Helsinki-NLP）、FFmpeg、eSpeak NG
+等開放模型與軟體。完整清單與授權請見 [CREDITS.md](CREDITS.md)。
