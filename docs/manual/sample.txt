@@ -1,0 +1,5 @@
+Welcome to Kokoro Reader.
+
+Kokoro Reader reads your text aloud on your own laptop. Nothing is uploaded, and no internet connection is needed.
+
+Open a text file, choose a voice, and click Generate. Click any word to jump there while you listen.

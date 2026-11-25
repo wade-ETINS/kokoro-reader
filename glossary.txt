@@ -1,0 +1,11 @@
+# Translation glossary for translate_srt.py
+# "source = target" forces a translation; a term alone is kept as is. Longest terms win.
+FLIR Thermal Studio Suite
+FLIR Thermal Studio
+Thermal Studio Suite
+Thermal Studio
+FLIR
+Infrared Training Center = 紅外線訓練中心
+spot meter = 點溫度計
+infrared images = 紅外線影像
+thermal data = 熱像數據

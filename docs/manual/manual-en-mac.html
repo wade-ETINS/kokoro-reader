@@ -1,0 +1,86 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Kokoro Reader – Mac install</title><style>
+@page { size: A4; margin: 16mm 15mm 16mm 15mm; }
+* { box-sizing: border-box; }
+body { font-family: "Segoe UI", "Microsoft JhengHei UI", "Microsoft JhengHei", sans-serif; color: #1d1d1b;
+       font-size: 10.5pt; line-height: 1.55; margin: 0; background: #fff; }
+.wrap { max-width: 180mm; margin: 0 auto; }
+h1 { font-size: 26pt; margin: 0 0 4mm; letter-spacing: -0.5px; }
+h2 { font-size: 16pt; margin: 0 0 3mm; padding-top: 1mm; break-before: page; color: #14365f; }
+h2 .n { display: inline-block; min-width: 9mm; color: #2a7de1; }
+h3 { font-size: 12pt; margin: 6mm 0 2mm; color: #14365f; break-after: avoid; }
+p { margin: 0 0 2.5mm; }
+ol, ul { margin: 0 0 3mm; padding-left: 6mm; }
+li { margin: 0 0 1.2mm; }
+b, strong { font-weight: 600; }
+code { font-family: Consolas, monospace; font-size: 9.5pt; background: #f1efe9; padding: 0 1mm; border-radius: 2px; }
+.ui { font-weight: 600; background: #eef4fc; border: 1px solid #cfe0f6; border-radius: 3px; padding: 0 1.2mm; white-space: nowrap; }
+figure { margin: 3mm 0 4mm; break-inside: avoid; }
+figure img { width: 100%; border: 1px solid #d9d6cc; border-radius: 6px; display: block; }
+figcaption { font-size: 9pt; color: #6b6a63; margin-top: 1.2mm; }
+table { border-collapse: collapse; width: 100%; margin: 2mm 0 4mm; font-size: 9.8pt; break-inside: avoid; }
+th, td { border: 1px solid #d9d6cc; padding: 1.6mm 2.2mm; text-align: left; vertical-align: top; }
+th { background: #f1efe9; font-weight: 600; }
+.note { border-left: 3px solid #2a7de1; background: #eef4fc; padding: 2.2mm 3mm; margin: 3mm 0; break-inside: avoid; }
+.warn { border-left: 3px solid #d08a00; background: #fdf5e4; padding: 2.2mm 3mm; margin: 3mm 0; break-inside: avoid; }
+.cover { height: 250mm; display: flex; flex-direction: column; justify-content: center; }
+.cover .logo { width: 22mm; height: 22mm; border-radius: 5mm; background: #0f7b80; display: flex; align-items: center;
+               justify-content: center; gap: 1.6mm; margin-bottom: 8mm; }
+.cover .logo i { display: block; width: 1.6mm; background: #fff; border-radius: 1mm; }
+.cover .sub { font-size: 14pt; color: #4b4a45; margin-bottom: 10mm; }
+.cover .meta { color: #6b6a63; font-size: 10pt; margin-top: 10mm; }
+.flow { display: flex; gap: 2mm; margin: 4mm 0; }
+.flow div { flex: 1; border: 1px solid #cfe0f6; background: #eef4fc; border-radius: 4px; padding: 2mm; text-align: center; font-size: 9.5pt; }
+.flow b { display: block; color: #2a7de1; font-size: 13pt; }
+.toc { columns: 2; column-gap: 10mm; padding-left: 0; list-style: none; }
+.toc li { margin-bottom: 1.5mm; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+.check li { list-style: "☐  "; }
+</style></head><body><div class="wrap">
+<div style="display:flex;align-items:center;gap:6mm;margin-bottom:4mm"><div class="cover" style="height:auto"><div class="logo"><i style="height:5mm"></i><i style="height:9mm"></i><i style="height:13mm"></i><i style="height:9mm"></i><i style="height:5mm"></i></div></div>
+<div><h1 style="margin:0">Kokoro Reader on a Mac</h1><div style="color:#4b4a45">Install guide · version 1.1.1 ·
+繁體中文版：《Kokoro Reader - Mac 安裝說明》</div></div></div>
+<p>The Mac version works exactly like the Windows version described in <b>Kokoro Reader - Getting Started.pdf</b>.
+This page covers what is different: installing, starting and where files are kept.</p>
+<p><b>You need:</b> a Mac with Apple silicon (M1 or later; check Apple menu → About This Mac → Chip), macOS 14 Sonoma or later,
+about 9 GB free disk space while installing (6 GB afterwards). 16 GB memory recommended for long videos.</p>
+
+<h3>Install (once)</h3>
+<ol>
+<li>Double-click <code>KokoroReader-Setup-1.1.1-macOS.zip</code> (about 3 GB). A folder <b>Kokoro Reader 1.1.1</b> appears next to it.</li>
+<li>Drag <b>Kokoro Reader.app</b> from that folder into <b>Applications</b>. Please don't skip this: the app
+refuses to start from the Downloads folder.</li>
+<li>Open Applications and double-click <b>Kokoro Reader</b>. Because it is not from the App Store, macOS says it
+could not check the app. Click <span class="ui">Done</span> (macOS 14: <span class="ui">OK</span>).</li>
+<li>Open <span class="ui">System Settings</span> → <span class="ui">Privacy &amp; Security</span>. Scroll down to the message about
+Kokoro Reader and click <span class="ui">Open Anyway</span>. Confirm with your password or Touch ID, then click <span class="ui">Open Anyway</span>
+once more.</li>
+<li>A notification says <i>Starting…</i>, and Kokoro Reader opens in your default browser. The first start takes up
+to two minutes. Later starts are much quicker.</li>
+</ol>
+<div class="note">You only allow the app once. From then on, double-click it in Applications or find it with
+Spotlight (<b>Cmd + Space</b>, type <i>Kokoro</i>).</div>
+<div class="warn"><b>Still blocked, or more warnings about “python3.12” or a “.dylib” file?</b> Open <b>Terminal</b>
+(Applications → Utilities), paste this line, press Return, then open Kokoro Reader again:<br>
+<code>xattr -dr com.apple.quarantine "/Applications/Kokoro Reader.app"</code></div>
+
+<h3>Differences from Windows</h3>
+<table><tr><th>Topic</th><th>On a Mac</th></tr>
+<tr><td>Start</td><td>Double-click Kokoro Reader in Applications. There is no Dock icon: the app lives in the browser tab.
+Opening it again while it runs brings the page back.</td></tr>
+<tr><td>Stop</td><td>Click <span class="ui">Quit</span> at the top of the page, or close the tab (it stops by itself about 5 minutes later).</td></tr>
+<tr><td>Work, glossary, log file</td><td><code>~/Library/Application Support/KokoroReader</code><br>Finder → Go → Go to Folder…, then paste the path.</td></tr>
+<tr><td>The program</td><td><code>/Applications/Kokoro Reader.app</code> (includes all voices and models; works offline)</td></tr>
+<tr><td>Saved WAV / MP3 / SRT / MP4</td><td>Your browser's download folder, usually <b>Downloads</b>.</td></tr>
+<tr><td>Speed</td><td>Not measured on a Mac yet; expect roughly the times in the Getting Started manual, section 12.</td></tr></table>
+
+<h3>Uninstall</h3>
+<p>Drag Kokoro Reader from Applications to the Trash. To also remove your work and the glossary, delete
+<code>~/Library/Application Support/KokoroReader</code> and <code>~/Library/Caches/KokoroReader</code>.</p>
+
+<h3>Troubleshooting</h3>
+<table><tr><th>What you see</th><th>What to do</th></tr>
+<tr><td>“Please drag Kokoro Reader into the Applications folder first”</td><td>Do step 2, then open it from Applications.</td></tr>
+<tr><td>“needs a Mac with Apple silicon” / “needs macOS 14”</td><td>This Mac can't run Kokoro Reader. Use a newer Mac or the Windows version.</td></tr>
+<tr><td>Nothing opens after two minutes</td><td>Open <code>http://127.0.0.1:7860</code> in the browser. If that fails, send
+<code>~/Library/Application Support/KokoroReader/kokoro-reader.log</code> to the person who gave you Kokoro Reader.</td></tr></table>
+</div></body></html>

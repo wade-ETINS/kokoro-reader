@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kokoro Reader</title>
+<link rel="stylesheet" href="/static/style.css">
+<link rel="icon" href="/static/icon.png" type="image/png">
+</head>
+<body>
+<main>
+<div class="appbar">
+  <span class="name"><img src="/static/icon.png" alt="">Kokoro Reader</span>
+  <button type="button" class="btn sm" id="guide-btn"><i data-i="book"></i><span data-t="guide">Getting started</span></button>
+  <div class="seg" role="group" aria-label="Interface language"><button type="button" data-ui="en">EN</button><button type="button" data-ui="zh">繁中</button></div>
+  <button type="button" class="btn sm" id="quit"><i data-i="quit"></i><span data-t="quit">Quit</span></button>
+</div>
+
+<!-- ============================== CONFIGURATION ============================== -->
+<section class="card" id="config">
+  <div class="head">
+    <h1><i data-i="settings"></i><span data-t="config">Configuration</span></h1>
+    <div class="head-acts">
+      <label class="btn"><input type="file" id="file" accept=".txt,.md,.srt" hidden><i data-i="file"></i><span data-t="open_file">Open file</span></label>
+      <label class="btn"><input type="file" id="video" accept="video/*,audio/*" hidden><i data-i="video"></i><span data-t="open_video">Open video</span></label>
+      <button type="button" class="btn primary plain-only" id="gen-top"><i data-i="spark"></i><span data-t="gen">Generate</span></button>
+    </div>
+  </div>
+
+  <div class="src" id="src" hidden></div>
+  <p class="msg" id="msg" role="status"></p>
+
+  <div id="welcome" class="welcome">
+    <p data-t="welcome">Open a text file to read it aloud, or open a video to transcribe, translate and dub it step by step.</p>
+    <button type="button" class="btn sm" id="welcome-guide"><i data-i="book"></i><span data-t="guide">Getting started</span></button>
+  </div>
+
+  <nav class="steps proj-only" id="steps" hidden>
+    <button type="button" data-s="1"><span data-t="s1">1 Transcribe</span></button>
+    <button type="button" data-s="2"><span data-t="s2">2 Translate</span></button>
+    <button type="button" data-s="3"><span data-t="s3">3 Review</span></button>
+    <button type="button" data-s="4"><span data-t="s4">4 Voice</span></button>
+    <button type="button" data-s="5"><span data-t="s5">5 Export</span></button>
+  </nav>
+
+  <!-- STEP 1 -->
+  <div class="step" data-p="1" hidden>
+    <p class="guide" data-t="g1">Step 1 of 5 · Transcribe.</p>
+    <div class="grid">
+      <div class="cell"><span class="lbl" tabindex="0"><span data-t="spoken">Spoken language</span><span class="tip" data-tip="spoken"></span></span>
+        <select id="spoken"><option value="auto" data-t="o_autodetect">Auto</option><option value="en">English</option><option value="zh">中文</option></select></div>
+      <div class="cell"><span class="lbl" tabindex="0"><span data-t="chunk">Chunk length</span><span class="tip" data-tip="chunk"></span></span>
+        <select id="chunk"><option value="5" data-t="o_5min">About 5 min</option><option value="10" data-t="o_10min">About 10 min</option><option value="0" data-t="o_whole">Whole video</option></select></div>
+      <div class="cell"><span class="lbl" tabindex="0"><span data-t="acc">Accuracy</span><span class="tip" data-tip="acc"></span></span>
+        <select id="acc"><option value="best" data-t="o_best">Best</option><option value="fast" data-t="o_fast">Fast</option></select></div>
+    </div>
+    <div class="progress"><div class="track"><div class="fill" id="p1-bar"></div></div><span id="p1-text"></span></div>
+    <div class="nav">
+      <span></span>
+      <button type="button" class="btn" id="p1-stop" hidden><span data-t="stop">Stop</span></button>
+      <button type="button" class="btn" id="p1-resume" hidden><span data-t="resume">Resume</span></button>
+      <button type="button" class="btn primary" id="p1-start"><i data-i="spark"></i><span data-t="start_tr">Start transcribing</span></button>
+      <button type="button" class="btn" data-go="2" hidden><span data-t="next2">Next: Translate →</span></button>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step" data-p="2" hidden>
+    <p class="guide" data-t="g2">Step 2 of 5 · Translate.</p>
+    <div class="grid">
+      <div class="cell"><span class="lbl" tabindex="0"><span data-t="target">Translate to</span><span class="tip" data-tip="target"></span></span>
+        <select id="target"><option value="auto" data-t="o_tauto">Automatic (English ↔ 繁體中文)</option><option value="zh">繁體中文（台灣）</option><option value="en">English</option><option value="off" data-t="o_toff">Off — same language</option></select></div>
+      <div class="cell"><span class="lbl" tabindex="0"><span data-t="glossary">Glossary</span><span class="tip" data-tip="glossary"></span></span>
+        <button type="button" class="btn wide" data-gloss><i data-i="glos"></i><span class="gcount">Edit</span></button></div>
+    </div>
+    <div class="progress"><div class="track"><div class="fill" id="p2-bar"></div></div><span id="p2-text"></span></div>
+    <div class="nav">
+      <button type="button" class="btn" data-go="1"><span data-t="back">← Back</span></button>
+      <button type="button" class="btn" id="p2-again"><i data-i="redo"></i><span data-t="again">Translate again</span></button>
+      <button type="button" class="btn primary" data-go="3"><span data-t="next3">Next: Review →</span></button>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step" data-p="3" hidden>
+    <p class="guide" data-t="g3">Step 3 of 5 · Review.</p>
+    <div class="meters">
+      <div class="m"><span data-t="m_rev">Reviewed</span><p id="m-rev">–</p></div>
+      <div class="m"><span data-t="m_flag">⚠ Flagged</span><p id="m-flag">–</p></div>
+      <div class="m"><span data-t="m_edit">Edited</span><p id="m-edit">–</p></div>
+      <div class="m"><span data-t="m_chunks">Chunks reviewed</span><p id="m-chunks">–</p></div>
+    </div>
+    <div class="progress"><div class="track"><div class="fill" id="p3-bar"></div></div><span id="p3-text"></span></div>
+    <div class="nav">
+      <button type="button" class="btn" data-go="2"><span data-t="back">← Back</span></button>
+      <button type="button" class="btn" id="to-table"><span data-t="to_table">↓ Go to table</span></button>
+      <button type="button" class="btn primary" data-go="4"><span data-t="next4">Next: Voice →</span></button>
+    </div>
+  </div>
+
+  <!-- STEP 4 (also the plain-text voice settings) -->
+  <div class="step" data-p="4" hidden>
+    <p class="guide proj-only" data-t="g4">Step 4 of 5 · Voice.</p>
+    <div class="grid">
+      <div class="cell"><span class="lbl" tabindex="0"><span data-t="slang">Language</span><span class="tip" data-tip="slang"></span></span>
+        <select id="lang"><option value="en-us">American English</option><option value="en-gb">British English</option><option value="zh">中文（台灣用語）</option></select></div>
+      <div class="cell"><span class="lbl" tabindex="0"><span data-t="voice">Voice</span><span class="tip" data-tip="voice"></span></span><select id="voice"></select></div>
+      <div class="cell"><span class="lbl" tabindex="0"><span data-t="blend">Blend with voice</span><span class="tip" data-tip="blend"></span></span><select id="blend"></select></div>
+      <div class="cell"><span class="lbl" tabindex="0"><span data-t="amount">Blend amount</span><span class="tip" data-tip="amount"></span></span>
+        <select id="amount"><option value="0">0%</option><option value="0.25">25%</option><option value="0.5">50%</option><option value="0.75">75%</option></select></div>
+      <div class="cell"><span class="lbl" tabindex="0"><span data-t="tone">Tone preset</span><span class="tip" data-tip="tone"></span></span>
+        <select id="tone"><option value="neutral" data-t="o_neutral">Neutral</option><option value="calm" data-t="o_calm">Calm</option><option value="energetic" data-t="o_energy">Energetic</option><option value="serious" data-t="o_serious">Serious</option><option value="custom" data-t="o_custom">Custom</option></select></div>
+      <div class="cell"><span class="lbl" tabindex="0"><span data-t="speed">Speed</span><span class="tip" data-tip="speed"></span></span>
+        <select id="speed"><option value="0.8">0.8x</option><option value="0.9">0.9x</option><option value="0.95">0.95x</option><option value="1.0" selected>1.0x</option><option value="1.1">1.1x</option><option value="1.2">1.2x</option></select></div>
+      <div class="cell plain-only"><span class="lbl" tabindex="0"><span data-t="pause">Pause between sentences</span><span class="tip" data-tip="pause"></span></span>
+        <select id="pause"><option value="0.15" data-t="o_short">Short</option><option value="0.35" data-t="o_normal" selected>Normal</option><option value="0.7" data-t="o_long">Long</option></select></div>
+      <div class="cell plain-only"><span class="lbl" tabindex="0"><span data-t="clean">Text clean-up</span><span class="tip" data-tip="clean"></span></span>
+        <select id="clean"><option value="1" data-t="o_auto">Auto + review</option><option value="0" data-t="o_off">Off</option></select></div>
+      <div class="cell plain-only"><span class="lbl" tabindex="0"><span data-t="saveas">Save as</span><span class="tip" data-tip="saveas"></span></span>
+        <select id="out-plain"><option value="wav">WAV</option><option value="mp3">MP3</option></select></div>
+      <div class="cell proj-only"><span class="lbl" tabindex="0"><span data-t="vsrc">Voice reads</span><span class="tip" data-tip="vsrc"></span></span>
+        <select id="vsrc"><option value="tr" data-t="o_vtr">Translation</option><option value="src" data-t="o_vsrc">Original text</option></select></div>
+      <div class="cell proj-only"><span class="lbl" tabindex="0"><span data-t="fit">Fit to timing</span><span class="tip" data-tip="fit"></span></span>
+        <select id="fit"><option value="both" data-t="o_both">Speed up + use gaps</option><option value="speed" data-t="o_speedonly">Speed up only</option><option value="gaps" data-t="o_gaps">Use gaps only</option><option value="off" data-t="o_off">Off</option></select></div>
+      <div class="cell proj-only"><span class="lbl" tabindex="0"><span data-t="max">Max speed-up</span><span class="tip" data-tip="max"></span></span>
+        <select id="max"><option value="1.15">1.15×</option><option value="1.25" selected>1.25×</option><option value="1.4">1.4×</option></select></div>
+      <div class="cell proj-only"><span class="lbl" tabindex="0"><span data-t="orig">Original audio</span><span class="tip" data-tip="orig"></span></span>
+        <select id="orig"><option value="mute" data-t="o_replace">Replace — new voice only</option><option value="lower" data-t="o_lower">Lower under new voice (both heard)</option><option value="keep" data-t="o_keep">Keep at full volume (both heard)</option></select></div>
+    </div>
+    <p class="hint" data-t="hover_hint">Hover or focus any dashed label for a short description.</p>
+
+    <h3 class="sec"><i data-i="gauge"></i><span data-t="meter">Time meter</span></h3>
+    <div class="meters">
+      <div class="m"><span class="lbl" tabindex="0"><span data-t="m_load">Model load</span><span class="tip" data-tip="m_load"></span></span><p id="m-load">–</p></div>
+      <div class="m"><span class="lbl" tabindex="0"><span data-t="m_gen">Generating</span><span class="tip" data-tip="m_gen"></span></span><p id="m-gen">–</p></div>
+      <div class="m"><span class="lbl" tabindex="0"><span data-t="m_aud">Audio made</span><span class="tip" data-tip="m_aud"></span></span><p id="m-aud">–</p></div>
+      <div class="m"><span class="lbl" tabindex="0"><span data-t="m_rt">Speed</span><span class="tip" data-tip="m_rt"></span></span><p id="m-rt">–</p></div>
+      <div class="m plain-only"><span class="lbl" tabindex="0"><span data-t="m_cps">Chars / sec</span><span class="tip" data-tip="m_cps"></span></span><p id="m-cps">–</p></div>
+      <div class="m proj-only"><span class="lbl" tabindex="0"><span data-t="m_fit">Lines fit</span><span class="tip" data-tip="m_fit"></span></span><p id="m-fit">–</p></div>
+    </div>
+    <div class="progress"><div class="track"><div class="fill" id="bar"></div></div><span id="prog-text"></span></div>
+    <div class="nav">
+      <button type="button" class="btn proj-only" data-go="3"><span data-t="back">← Back</span></button>
+      <span class="plain-only"></span>
+      <button type="button" class="btn" id="cancel" hidden><span data-t="cancel">Cancel</span></button>
+      <button type="button" class="btn primary" id="gen"><i data-i="spark"></i><span data-t="gen_voice">Generate voice</span></button>
+      <button type="button" class="btn proj-only" data-go="5" id="next5"><span data-t="next5">Next: Export →</span></button>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step" data-p="5" hidden>
+    <p class="guide" data-t="g5">Step 5 of 5 · Export.</p>
+    <table class="out"><tbody id="out-rows"></tbody></table>
+    <div class="nav">
+      <button type="button" class="btn" data-go="4"><span data-t="back">← Back</span></button>
+      <button type="button" class="btn primary" id="save-sel"><i data-i="dl"></i><span id="save-sel-t">Save selected</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== WORK AREA ============================== -->
+<section class="card" id="work" hidden>
+  <div class="head">
+    <h2><i data-i="file" id="work-ico"></i><span id="doc-title"></span></h2>
+    <span class="meta" id="doc-meta"></span>
+  </div>
+  <div class="tabs proj-only" id="tabs">
+    <button type="button" data-tab="rev" class="on"><i data-i="check"></i><span data-t="tab_rev">Review</span></button>
+    <button type="button" data-tab="play"><i data-i="play"></i><span data-t="tab_play">Play &amp; highlight</span></button>
+  </div>
+
+  <div id="t-rev" class="proj-only">
+    <video id="rv-video" playsinline controls hidden></video>
+    <div class="chunks" id="chunks"></div>
+    <div class="bar2">
+      <div class="seg" id="filter"></div>
+      <span class="sp"></span>
+      <button type="button" class="btn sm" data-gloss><i data-i="glos"></i><span data-t="glossary">Glossary</span></button>
+      <button type="button" class="btn sm" id="rt-chunk"><i data-i="redo"></i><span data-t="rt_chunk">Re-translate chunk</span></button>
+      <button type="button" class="btn sm primary" id="mark-chunk"><i data-i="check"></i><span data-t="mark_chunk">Mark chunk reviewed</span></button>
+    </div>
+    <div class="scroll" id="rv-scroll"><table class="rv" id="rv"></table></div>
+    <p class="foot" data-t="rv_foot">Click a line to edit it.</p>
+  </div>
+
+  <div id="t-play">
+    <video id="media" playsinline hidden></video>
+    <div id="text" class="text"></div>
+    <div class="player">
+      <button type="button" class="btn sq" id="prev" aria-label="Previous"><i data-i="prev"></i></button>
+      <button type="button" class="btn sq" id="play" aria-label="Play"><i data-i="play"></i></button>
+      <button type="button" class="btn sq" id="stop" aria-label="Stop"><i data-i="stop"></i></button>
+      <button type="button" class="btn sq" id="next" aria-label="Next"><i data-i="next"></i></button>
+      <input type="range" id="seek" min="0" max="0" step="0.1" value="0" aria-label="Playback position">
+      <span class="muted" id="time">0:00 / 0:00</span>
+    </div>
+    <div class="rows" id="downloads"></div>
+    <p class="foot" data-t="foot">Click any word or line to play from there.</p>
+  </div>
+</section>
+</main>
+
+<!-- ============================== GLOSSARY ============================== -->
+<dialog id="gloss">
+  <div class="dlg-h"><b id="gloss-title">Glossary</b><button type="button" class="btn sm" id="gloss-close" data-t="close">Close</button></div>
+  <div class="dlg-b">
+    <p class="muted" data-t="gloss_intro">Terms build up as you review.</p>
+    <div class="bar2">
+      <input class="find" id="gloss-find" data-tp="search">
+      <span class="sp"></span>
+      <label class="btn sm"><input type="file" id="gloss-import" accept=".txt" hidden><span data-t="import">Import .txt</span></label>
+      <a class="btn sm" href="/api/glossary.txt" download="glossary.txt" data-t="export">Export .txt</a>
+    </div>
+    <table class="rv gt"><thead><tr><th data-t="g_en">English</th><th data-t="g_zh">繁體中文</th><th data-t="g_added">Added</th><th data-t="g_used">Used</th><th></th></tr></thead><tbody id="gloss-rows"></tbody></table>
+    <div class="nav">
+      <button type="button" class="btn primary" id="gloss-apply"></button>
+      <button type="button" class="btn" id="gloss-done" data-t="done">Done</button>
+    </div>
+  </div>
+</dialog>
+
+<!-- add-to-glossary popup -->
+<div class="pop" id="pop" hidden>
+  <b data-t="add_gloss">Add to glossary</b>
+  <div class="pg"><input id="pop-src" data-tp="g_en"><span>=</span><input id="pop-dst" data-tp="pop_dst"></div>
+  <div class="edbar">
+    <button type="button" class="btn sm primary" id="pop-line" data-t="add_line">Add + fix this line</button>
+    <button type="button" class="btn sm" id="pop-all" data-t="add_all">Add + re-translate all</button>
+    <button type="button" class="btn sm" id="pop-cancel" data-t="cancel">Cancel</button>
+  </div>
+</div>
+
+<!-- ============================== GETTING STARTED ============================== -->
+<dialog id="guide">
+  <div class="dlg-h"><b id="guide-title">Getting started</b>
+    <div class="ui-lang"><div class="seg"><button type="button" data-gl="en">English</button><button type="button" data-gl="zh">繁體中文</button></div>
+    <button type="button" class="btn sm" id="guide-close" data-t="close">Close</button></div></div>
+  <div class="dlg-b" id="guide-body"></div>
+</dialog>
+
+<script src="/static/icons.js"></script>
+<script src="/static/i18n.js"></script>
+<script src="/static/guide.js"></script>
+<script src="/static/app.js"></script>
+</body>
+</html>

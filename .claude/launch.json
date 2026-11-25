@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "kokoro-reader",
+      "runtimeExecutable": ".venv\\Scripts\\python.exe",
+      "runtimeArgs": ["app\\server.py", "--no-browser"],
+      "port": 7860
+    }
+  ]
+}

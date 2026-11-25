@@ -1,0 +1,256 @@
+<!doctype html><html lang="zh-Hant-TW"><head><meta charset="utf-8"><title>Kokoro Reader – 使用入門</title><style>
+@page { size: A4; margin: 16mm 15mm 16mm 15mm; }
+* { box-sizing: border-box; }
+body { font-family: "Segoe UI", "Microsoft JhengHei UI", "Microsoft JhengHei", sans-serif; color: #1d1d1b;
+       font-size: 10.5pt; line-height: 1.55; margin: 0; background: #fff; }
+.wrap { max-width: 180mm; margin: 0 auto; }
+h1 { font-size: 26pt; margin: 0 0 4mm; letter-spacing: -0.5px; }
+h2 { font-size: 16pt; margin: 0 0 3mm; padding-top: 1mm; break-before: page; color: #14365f; }
+h2 .n { display: inline-block; min-width: 9mm; color: #2a7de1; }
+h3 { font-size: 12pt; margin: 6mm 0 2mm; color: #14365f; break-after: avoid; }
+p { margin: 0 0 2.5mm; }
+ol, ul { margin: 0 0 3mm; padding-left: 6mm; }
+li { margin: 0 0 1.2mm; }
+b, strong { font-weight: 600; }
+code { font-family: Consolas, monospace; font-size: 9.5pt; background: #f1efe9; padding: 0 1mm; border-radius: 2px; }
+.ui { font-weight: 600; background: #eef4fc; border: 1px solid #cfe0f6; border-radius: 3px; padding: 0 1.2mm; white-space: nowrap; }
+figure { margin: 3mm 0 4mm; break-inside: avoid; }
+figure img { width: 100%; border: 1px solid #d9d6cc; border-radius: 6px; display: block; }
+figcaption { font-size: 9pt; color: #6b6a63; margin-top: 1.2mm; }
+table { border-collapse: collapse; width: 100%; margin: 2mm 0 4mm; font-size: 9.8pt; break-inside: avoid; }
+th, td { border: 1px solid #d9d6cc; padding: 1.6mm 2.2mm; text-align: left; vertical-align: top; }
+th { background: #f1efe9; font-weight: 600; }
+.note { border-left: 3px solid #2a7de1; background: #eef4fc; padding: 2.2mm 3mm; margin: 3mm 0; break-inside: avoid; }
+.warn { border-left: 3px solid #d08a00; background: #fdf5e4; padding: 2.2mm 3mm; margin: 3mm 0; break-inside: avoid; }
+.cover { height: 250mm; display: flex; flex-direction: column; justify-content: center; }
+.cover .logo { width: 22mm; height: 22mm; border-radius: 5mm; background: #0f7b80; display: flex; align-items: center;
+               justify-content: center; gap: 1.6mm; margin-bottom: 8mm; }
+.cover .logo i { display: block; width: 1.6mm; background: #fff; border-radius: 1mm; }
+.cover .sub { font-size: 14pt; color: #4b4a45; margin-bottom: 10mm; }
+.cover .meta { color: #6b6a63; font-size: 10pt; margin-top: 10mm; }
+.flow { display: flex; gap: 2mm; margin: 4mm 0; }
+.flow div { flex: 1; border: 1px solid #cfe0f6; background: #eef4fc; border-radius: 4px; padding: 2mm; text-align: center; font-size: 9.5pt; }
+.flow b { display: block; color: #2a7de1; font-size: 13pt; }
+.toc { columns: 2; column-gap: 10mm; padding-left: 0; list-style: none; }
+.toc li { margin-bottom: 1.5mm; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+.check li { list-style: "☐  "; }
+</style></head><body><div class="wrap">
+<section class="cover"><div class="logo"><i style="height:5mm"></i><i style="height:9mm"></i><i style="height:13mm"></i><i style="height:9mm"></i><i style="height:5mm"></i></div>
+<h1>Kokoro Reader</h1>
+<div class="sub">使用入門手冊</div>
+<p>朗讀文字、將影片語音轉成字幕、英文 ↔ 繁體中文翻譯，並為影片配上新的語音。
+所有處理都在您自己的 Windows 筆電上完成：不需網路、不上傳檔案、不需帳號。</p>
+<div class="flow"><div><b>1</b>轉錄</div><div><b>2</b>翻譯</div><div><b>3</b>校對</div><div><b>4</b>配音</div><div><b>5</b>匯出</div></div>
+<div class="meta">版本 1.1 · ETINSTW · English edition: “Kokoro Reader – Getting Started”</div>
+</section>
+
+<h2><span class="n">0</span>目錄</h2>
+<ol class="toc">
+<li>1 · 安裝</li><li>2 · 啟動與結束</li><li>3 · 朗讀文字檔</li>
+<li>4 · 影片配音：總覽</li><li>5 · 步驟 1 轉錄</li><li>6 · 步驟 2 翻譯</li>
+<li>7 · 步驟 3 校對</li><li>8 · 詞彙表</li><li>9 · 步驟 4 配音</li>
+<li>10 · 步驟 5 匯出</li><li>11 · 已有字幕的影片</li><li>12 · 所需時間</li>
+<li>13 · 檔案存放位置</li><li>14 · 疑難排解</li><li>15 · 一頁檢查表</li>
+</ol>
+<h3>可以做什麼</h3>
+<table><tr><th>您有</th><th>Kokoro Reader 提供</th><th>請看</th></tr>
+<tr><td>文字檔（.txt / .md）</td><td>朗讀並逐字標示，可存成 WAV 或 MP3</td><td>第 3 節</td></tr>
+<tr><td>英文或中文影片</td><td>字幕、可逐句校對的翻譯，以及配上另一種語言新語音的影片</td><td>第 4–10 節</td></tr>
+<tr><td>字幕檔（.srt）與其影片</td><td>同上，但從您的字幕開始</td><td>第 11 節</td></tr></table>
+<div class="note"><b>隱私：</b>語音辨識、翻譯和語音都內建在程式中。您的影片與文字不會離開您的筆電。</div>
+
+<h2><span class="n">1</span>安裝</h2>
+<p><b>需求：</b>Windows 10 或 11（64 位元）、約 5 GB 可用磁碟空間，建議 16 GB 記憶體
+（文字與短片 8 GB 即可）。不需系統管理員權限，也不需網路。</p>
+<ol>
+<li>將 <code>KokoroReader-Setup-1.1.1.exe</code>（約 2.8 GB）複製到筆電，按兩下執行。</li>
+<li>若 Windows 顯示<b>「Windows 已保護您的電腦」</b>，請按 <span class="ui">其他資訊</span> → <span class="ui">仍要執行</span>。
+安裝程式沒有公司憑證簽章；請只對 ETINSTW 提供的安裝程式這樣做。</li>
+<li>選擇安裝程式語言（English 或 繁體中文），閱讀歡迎頁面後按 <span class="ui">下一步</span>。</li>
+<li>可勾選 <span class="ui">建立桌面捷徑</span>，再按 <span class="ui">安裝</span>。安裝約需 5–6 分鐘。</li>
+<li>保留勾選 <span class="ui">立即啟動 Kokoro Reader</span>，按 <span class="ui">完成</span>。</li>
+</ol>
+<p>單一安裝程式已包含所有元件：程式本身、Python、英文與中文語音、語音辨識模型、翻譯模型，以及處理影片的 FFmpeg。之後不會再下載任何東西。</p>
+<p>開始功能表會出現三個項目：<b>Kokoro Reader</b>、<b>Kokoro Reader – 使用入門</b>（本手冊）與 <b>Kokoro Reader – Getting Started</b>（英文版手冊）。</p>
+
+<h2><span class="n">2</span>啟動與結束</h2>
+<ol>
+<li>從開始功能表開啟 <b>Kokoro Reader</b>。它會在您的網頁瀏覽器中以 <code>127.0.0.1</code> 開啟，
+也就是您自己的筆電，而不是網站。</li>
+<li>右上角的 <span class="ui">EN</span> / <span class="ui">繁中</span> 可切換畫面語言。</li>
+<li><span class="ui">使用說明</span> 會在程式內開啟本手冊的精簡版。</li>
+<li>使用完畢請按 <span class="ui">結束</span>。若只關閉瀏覽器分頁，程式約 5 分鐘後會自動結束，但工作進行中絕不會結束。</li>
+</ol>
+<figure><img src="img/zh-01-welcome.png" alt=""><figcaption>開始畫面。「繼續上次的工作：…」可回到上次處理的影片。</figcaption></figure>
+<div class="note">工作會隨時自動儲存。關閉程式後再開啟，按 <span class="ui">繼續上次的工作：&lt;影片名稱&gt;</span> 即可從中斷處繼續。</div>
+<figure><img src="img/zh-02-guide.png" alt=""><figcaption>程式內的「使用入門」：以英文或繁體中文簡要說明相同步驟。</figcaption></figure>
+
+<h2><span class="n">3</span>朗讀文字檔</h2>
+<ol>
+<li>按 <span class="ui">開啟檔案</span>，選擇 <code>.txt</code> 或 <code>.md</code> 檔案。</li>
+<li>選擇<b>語言</b>與<b>語音</b>。預設：英文 <code>af_bella</code>、中文 <code>zm_009</code>。
+也可設定語氣、速度與句間停頓。將滑鼠移到有虛線底線的標籤上可看到說明。</li>
+<li>按 <span class="ui">產生</span>。程式啟動後第一次產生會多花 30–40 秒載入語音。</li>
+<li>按 ▶ 播放，點任何字可跳到該處。在播放器下方的檔案清單中儲存 WAV 或 MP3。</li>
+</ol>
+<figure><img src="img/zh-13-text.png" alt=""><figcaption>文字模式：上方是設定，下方是文字，朗讀時會同步標示。</figcaption></figure>
+
+<h2><span class="n">4</span>影片配音：總覽</h2>
+<p>按 <span class="ui">開啟影片</span> 並選擇影片（MP4、MOV、MKV 等大部分格式皆可）。畫面會出現五個步驟的列，由左至右引導您：</p>
+<div class="flow"><div><b>1</b>轉錄<br>語音 → 字幕</div><div><b>2</b>翻譯<br>英 ↔ 中</div><div><b>3</b>校對<br>檢查與修正</div><div><b>4</b>配音<br>新語音音軌</div><div><b>5</b>匯出<br>儲存檔案</div></div>
+<ul>
+<li>目前的步驟是<b style="color:#2a7de1">藍色</b>；完成的步驟變成<b style="color:#3d6b1f">綠色 ✓</b>。
+鎖定的步驟 🔒 會在前一步準備好時自動開啟。</li>
+<li>每個步驟都有藍色的說明列告訴您該做什麼，底部有 <span class="ui">上一步</span> / <span class="ui">下一步</span> 按鈕。</li>
+<li>長影片會在自然停頓處切成約 5 分鐘的段落。後面段落還在轉錄時，您就可以先校對第 1 段。</li>
+<li>下方卡片有兩個分頁：<span class="ui">校對</span>（逐句表格）與 <span class="ui">播放與標示</span>（觀看結果）。</li>
+</ul>
+<div class="warn">處理期間請接上電源並保持筆電不休眠。長影片需要一段時間（見第 12 節）。
+<span class="ui">停止</span> 與 <span class="ui">繼續</span> 會從中斷處接續，即使關閉程式後也可以。</div>
+
+<h2><span class="n">5</span>步驟 1 · 轉錄</h2>
+<p>將影片中的語音轉成有時間碼的字幕句子。</p>
+<table><tr><th>設定</th><th>建議</th><th>原因</th></tr>
+<tr><td>影片語言</td><td>自動偵測</td><td>會自行判斷英文或中文。只有自動判斷錯誤時才自己選擇。</td></tr>
+<tr><td>分段長度</td><td>約 5 分鐘</td><td>可以提早開始校對。10 分鐘以下的短片選「整部影片」也可以。</td></tr>
+<tr><td>準確度</td><td>最佳</td><td>「快速」約快一倍，但錯誤較多；適合粗略草稿。</td></tr></table>
+<ol><li>確認設定後按 <span class="ui">開始轉錄</span>。</li>
+<li>觀察進度列。第一段完成後步驟 2 就會開啟，不必等全部完成。</li></ol>
+<figure><img src="img/zh-03-step1.png" alt=""><figcaption>步驟 1 完成：14 分鐘影片轉出 202 句，速度為實際時間的 2.6 倍。</figcaption></figure>
+
+<h2><span class="n">6</span>步驟 2 · 翻譯</h2>
+<p>每段轉錄完成後會立即翻譯。</p>
+<ul>
+<li><b>翻譯成</b> = <b>自動</b>：英文影片翻成繁體中文（台灣用語），中文影片翻成英文。</li>
+<li>若只想用原語言重新配音（例如替換錄音品質不佳的旁白），請選<b>關閉 — 同一語言</b>。</li>
+<li><span class="ui">重新翻譯</span> 會重做翻譯，例如在加入許多詞彙後。您手動修改過的句子會保留。</li>
+</ul>
+<p>翻譯以整句為單位，再分配回各字幕行，因此即使一句話被拆成好幾行，意思仍然完整。</p>
+<figure><img src="img/zh-04-step2.png" alt=""><figcaption>步驟 2：選擇翻譯方向；進度顯示已翻譯的段落數。</figcaption></figure>
+
+<h2><span class="n">7</span>步驟 3 · 校對</h2>
+<p>在這裡把翻譯修正好。機器翻譯偏向直譯，請預期需要修改部分句子。</p>
+<figure><img src="img/zh-05-step3.png" alt=""><figcaption>步驟 3：計數顯示已校對、已標示與已修改的數量。</figcaption></figure>
+<h3>校對表格</h3>
+<figure><img src="img/zh-06-review.png" alt=""><figcaption>校對分頁：影片、段落按鈕、篩選，以及原文與譯文並排。</figcaption></figure>
+<ol>
+<li>用段落按鈕選擇段落（例如<b>第 1 段 · 0:00–5:07</b>）。</li>
+<li>按 <span class="ui">⚠ 標記</span>，先看最可能需要修改的句子。</li>
+<li>點一下譯文即可編輯。<b>Enter</b> 儲存，<b>Esc</b> 取消。
+編輯時也可以按 <span class="ui">重新翻譯</span> 或 <span class="ui">復原修改</span>（回到機器翻譯）。</li>
+<li>▶ 播放影片中的該句，讓您聽到實際說了什麼。✎ 可修改原文。</li>
+<li>每句正確就勾選 ✓；整段完成後按 <span class="ui">標記本段已校對</span>。</li>
+<li>對每一段重複以上步驟。<span class="ui">未校對</span> 會顯示剩下的句子。</li>
+</ol>
+<h3>⚠ 標示的意思</h3>
+<p>這些是提示，不是錯誤。</p>
+<table><tr><th>標示</th><th>意思</th><th>處理方式</th></tr>
+<tr><td>⤓ 合併</td><td>句子延續到下一行。</td><td>點一下即可把兩行合成一行。</td></tr>
+<tr><td>太長</td><td>譯文可能太長，無法在可用時間內說完。</td><td>縮短用字。</td></tr>
+<tr><td>不確定</td><td>轉錄時對某些字沒有把握。</td><td>按 ▶ 聆聽，修正原文（✎）。</td></tr>
+<tr><td>延遲</td><td>步驟 4 之後：新語音超過了下一句的開始時間。</td><td>縮短該句，再產生一次語音。</td></tr></table>
+
+<h2><span class="n">8</span>詞彙表：教一次就記住</h2>
+<p>產品名稱與專業術語常被翻錯。在詞彙表修正一次，之後每部影片都會使用您的用詞。詞彙表中的詞在表格中以綠色底線標示。</p>
+<ol>
+<li>在表格中用滑鼠選取翻錯的字詞。</li>
+<li>按右鍵 → 開啟<b>加入詞彙表</b>，已自動填入該字詞。</li>
+<li>在另一邊輸入正確用詞。中文欄留空表示保留英文（例如 <i>FLIR Thermal Studio</i>）。</li>
+<li>按 <span class="ui">加入並修正這一行</span>，或 <span class="ui">加入並重新翻譯全部</span> 套用到所有句子。</li>
+</ol>
+<figure><img src="img/zh-07-popup.png" alt=""><figcaption>選取字詞後按右鍵，即可加入詞彙表。</figcaption></figure>
+<p><span class="ui">詞彙表</span> 按鈕會列出所有詞彙、來源與使用次數，可搜尋、修改與刪除。
+<span class="ui">匯出 .txt</span> 與 <span class="ui">匯入 .txt</span> 可讓同事共用同一份清單。</p>
+<figure><img src="img/zh-08-glossary.png" alt=""><figcaption>詞彙表視窗。</figcaption></figure>
+
+<h2><span class="n">9</span>步驟 4 · 配音</h2>
+<p>產生新的語音音軌並放進影片中。</p>
+<ol>
+<li>確認<b>語音</b>：預設中文 <code>zm_009</code>（男聲）、英文 <code>af_bella</code>（女聲）；清單中還有其他語音。</li>
+<li>保留<b>配音內容</b> = 譯文、<b>對齊時間</b> = 加速 + 使用空檔、<b>最高加速</b> = 1.25×。</li>
+<li><b>原始音訊</b> = <b>取代 — 只有新配音</b>（預設）。影片原本的聲音會移除，只留下新語音，
+因此絕不會同時聽到兩個聲音。背景音樂也會一併移除。</li>
+<li>按 <span class="ui">產生配音</span>。時間表顯示進度；<b>符合時間的行數</b>顯示有多少句能在時間內說完。</li>
+<li>開啟 <span class="ui">播放與標示</span> 分頁觀看結果。</li>
+</ol>
+<figure><img src="img/zh-10-step4-done.png" alt=""><figcaption>步驟 4 完成：10 句中有 8 句吻合；2 句延遲的句子會在校對表格中標示。</figcaption></figure>
+<figure><img src="img/zh-12-play.png" alt=""><figcaption>播放與標示：配上新語音的影片，文字隨語音同步標示。</figcaption></figure>
+<div class="note">若有句子延遲，請回到步驟 3，篩選 ⚠ 標記，縮短標示為<b>延遲</b>的句子，再產生一次語音。
+把<b>最高加速</b>調到 1.4× 是較快的辦法，但聽起來會比較趕。</div>
+
+<h2><span class="n">10</span>步驟 5 · 匯出</h2>
+<p>勾選需要的檔案後按 <span class="ui">儲存已勾選</span>，或按單一列的 <span class="ui">儲存</span>。檔案以影片名稱命名，存到您的「下載」資料夾。</p>
+<table><tr><th>檔案</th><th>名稱範例</th><th>用途</th></tr>
+<tr><td>配上新語音的影片（MP4）</td><td><code>video.zh-TW.mp4</code></td><td>完成的配音影片</td></tr>
+<tr><td>只有語音（WAV）</td><td><code>video.zh-TW.wav</code></td><td>在其他影片軟體中編輯</td></tr>
+<tr><td>新字幕，配合新語音重新計時</td><td><code>video.zh-TW.srt</code></td><td>配音影片的字幕</td></tr>
+<tr><td>原文字幕</td><td><code>video.en.srt</code></td><td>原始影片的字幕</td></tr>
+<tr><td>雙語字幕</td><td><code>video.en+zh-TW.srt</code></td><td>每行兩種語言，供檢查或教學使用</td></tr></table>
+<figure><img src="img/zh-11-step5.png" alt=""><figcaption>步驟 5：最常用的三個檔案已預先勾選。</figcaption></figure>
+
+<h2><span class="n">11</span>已有字幕的影片</h2>
+<p>若影片已有品質良好的 <code>.srt</code>，可略過轉錄：</p>
+<ol>
+<li>按 <span class="ui">開啟檔案</span> 選擇 <code>.srt</code>，程式會從步驟 2 開始。</li>
+<li>按 <span class="ui">開啟影片</span> 選擇對應的影片（步驟 3–5 需要）。</li>
+<li>照常進行步驟 2 到 5。</li>
+</ol>
+
+<h2><span class="n">12</span>所需時間</h2>
+<p>在 ETINSTW 筆電上實測（Intel Core Ultra 7，不需獨立顯示卡）：</p>
+<table><tr><th>工作</th><th>14 分鐘影片</th><th>1 小時影片（估計）</th></tr>
+<tr><td>步驟 1 轉錄（最佳）</td><td>約 6 分鐘</td><td>約 25–30 分鐘</td></tr>
+<tr><td>步驟 2 翻譯</td><td>10 秒內</td><td>1 分鐘內</td></tr>
+<tr><td>步驟 4 中文配音</td><td>約 11 分鐘</td><td>約 1 小時</td></tr>
+<tr><td>步驟 4 英文配音</td><td>約 8 分鐘</td><td>約 40 分鐘</td></tr></table>
+<p>程式啟動後第一次產生配音，會多花 30–80 秒載入語音模型。校對時間因人而異：第一次每 5 分鐘段落約需 10–20 分鐘，詞彙表累積後會越來越快。</p>
+<div class="note"><b>長影片小技巧：</b>先開始轉錄，每段準備好就開始校對。配音可以排在下班前或午餐時間進行。</div>
+
+<h2><span class="n">13</span>檔案存放位置</h2>
+<table><tr><th>內容</th><th>位置</th></tr>
+<tr><td>在步驟 5 或文字模式儲存的檔案</td><td>您的「下載」資料夾</td></tr>
+<tr><td>進行中的工作、詞彙表、記錄檔</td><td><code>%LOCALAPPDATA%\KokoroReader</code></td></tr>
+<tr><td>程式與本手冊</td><td><code>%LOCALAPPDATA%\Programs\Kokoro Reader</code></td></tr></table>
+<div class="warn"><b>解除安裝</b>（Windows 設定 → 應用程式 → Kokoro Reader → 解除安裝）會移除程式<b>以及</b>工作資料夾，
+包括您的詞彙表。若要保留，請先按 <span class="ui">詞彙表</span> → <span class="ui">匯出 .txt</span>。直接安裝新版本覆蓋舊版會保留您的工作與詞彙表。</div>
+
+<h2><span class="n">14</span>疑難排解</h2>
+<table><tr><th>問題</th><th>處理方式</th></tr>
+<tr><td>Windows 封鎖安裝程式</td><td><span class="ui">其他資訊</span> → <span class="ui">仍要執行</span>（第 1 節）。</td></tr>
+<tr><td>按下開始轉錄或產生後似乎沒反應</td><td>第一次載入可能需要一分鐘，請留意進度文字。</td></tr>
+<tr><td>頁面顯示程式已停止</td><td>從開始功能表再次開啟 Kokoro Reader，按 <span class="ui">繼續上次的工作：…</span>。</td></tr>
+<tr><td>重新開啟程式後步驟 5 是空的</td><td>結束程式後不會保留語音。回到步驟 4 再按一次 <span class="ui">產生配音</span>；您的修改都會保留。</td></tr>
+<tr><td>部分句子的語音延遲</td><td>在步驟 3 縮短這些句子，或在步驟 4 提高最高加速。</td></tr>
+<tr><td>產品名稱翻錯</td><td>加入詞彙表一次即可（第 8 節）。</td></tr>
+<tr><td>某個中文詞發音怪怪的</td><td>中文語音模型的已知限制。請換個說法，品牌名稱可寫成英文。</td></tr>
+<tr><td>語言判斷錯誤</td><td>重新開啟影片，在步驟 1 自行設定影片語言。</td></tr>
+<tr><td>其他問題</td><td>將 <code>%LOCALAPPDATA%\KokoroReader\kokoro-reader.log</code> 傳給提供安裝程式的人。</td></tr></table>
+
+<h2><span class="n">15</span>一頁檢查表</h2>
+<div class="two"><div>
+<h3>影片配音</h3>
+<ul class="check">
+<li><span class="ui">開啟影片</span></li>
+<li>步驟 1：自動偵測 · 約 5 分鐘 · 最佳 → <span class="ui">開始轉錄</span></li>
+<li>步驟 2：自動</li>
+<li>步驟 3：逐段 → 先看 ⚠ 標記 → 修改 → ✓ → <span class="ui">標記本段已校對</span></li>
+<li>用詞錯誤？選取 → 右鍵 → 加入詞彙表</li>
+<li>步驟 4：確認語音 · 原始音訊 = 取代 → <span class="ui">產生配音</span></li>
+<li>在 <span class="ui">播放與標示</span> 觀看；修正延遲的句子後再產生一次</li>
+<li>步驟 5：勾選檔案 → <span class="ui">儲存已勾選</span></li>
+<li><span class="ui">結束</span></li>
+</ul></div><div>
+<h3>朗讀文字</h3>
+<ul class="check">
+<li><span class="ui">開啟檔案</span> → .txt / .md</li>
+<li>語言與語音</li>
+<li><span class="ui">產生</span></li>
+<li>▶ 聆聽 · 點字詞可跳轉</li>
+<li>儲存 WAV / MP3</li>
+<li><span class="ui">結束</span></li>
+</ul>
+<h3>校對表格的鍵盤操作</h3>
+<ul><li><b>Enter</b>：儲存修改</li><li><b>Esc</b>：取消修改或關閉詞彙框</li></ul>
+</div></div>
+</div></body></html>

@@ -1,0 +1,26 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Large or rebuilt locally (see README for how to recreate)
+models/
+tools/
+work/
+out/
+out_zh/
+build/cache/
+build/dist/
+build/output/
+build/tools/
+*.log
+
+# Generated manuals (rebuilt by docs/manual/*.py)
+docs/manual/*.pdf
+docs/manual/out/
+
+# Media and local settings
+*.wav
+*.mp3
+*.mp4
+.claude/settings.local.json

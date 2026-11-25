@@ -1,0 +1,272 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Kokoro Reader – Getting Started</title><style>
+@page { size: A4; margin: 16mm 15mm 16mm 15mm; }
+* { box-sizing: border-box; }
+body { font-family: "Segoe UI", "Microsoft JhengHei UI", "Microsoft JhengHei", sans-serif; color: #1d1d1b;
+       font-size: 10.5pt; line-height: 1.55; margin: 0; background: #fff; }
+.wrap { max-width: 180mm; margin: 0 auto; }
+h1 { font-size: 26pt; margin: 0 0 4mm; letter-spacing: -0.5px; }
+h2 { font-size: 16pt; margin: 0 0 3mm; padding-top: 1mm; break-before: page; color: #14365f; }
+h2 .n { display: inline-block; min-width: 9mm; color: #2a7de1; }
+h3 { font-size: 12pt; margin: 6mm 0 2mm; color: #14365f; break-after: avoid; }
+p { margin: 0 0 2.5mm; }
+ol, ul { margin: 0 0 3mm; padding-left: 6mm; }
+li { margin: 0 0 1.2mm; }
+b, strong { font-weight: 600; }
+code { font-family: Consolas, monospace; font-size: 9.5pt; background: #f1efe9; padding: 0 1mm; border-radius: 2px; }
+.ui { font-weight: 600; background: #eef4fc; border: 1px solid #cfe0f6; border-radius: 3px; padding: 0 1.2mm; white-space: nowrap; }
+figure { margin: 3mm 0 4mm; break-inside: avoid; }
+figure img { width: 100%; border: 1px solid #d9d6cc; border-radius: 6px; display: block; }
+figcaption { font-size: 9pt; color: #6b6a63; margin-top: 1.2mm; }
+table { border-collapse: collapse; width: 100%; margin: 2mm 0 4mm; font-size: 9.8pt; break-inside: avoid; }
+th, td { border: 1px solid #d9d6cc; padding: 1.6mm 2.2mm; text-align: left; vertical-align: top; }
+th { background: #f1efe9; font-weight: 600; }
+.note { border-left: 3px solid #2a7de1; background: #eef4fc; padding: 2.2mm 3mm; margin: 3mm 0; break-inside: avoid; }
+.warn { border-left: 3px solid #d08a00; background: #fdf5e4; padding: 2.2mm 3mm; margin: 3mm 0; break-inside: avoid; }
+.cover { height: 250mm; display: flex; flex-direction: column; justify-content: center; }
+.cover .logo { width: 22mm; height: 22mm; border-radius: 5mm; background: #0f7b80; display: flex; align-items: center;
+               justify-content: center; gap: 1.6mm; margin-bottom: 8mm; }
+.cover .logo i { display: block; width: 1.6mm; background: #fff; border-radius: 1mm; }
+.cover .sub { font-size: 14pt; color: #4b4a45; margin-bottom: 10mm; }
+.cover .meta { color: #6b6a63; font-size: 10pt; margin-top: 10mm; }
+.flow { display: flex; gap: 2mm; margin: 4mm 0; }
+.flow div { flex: 1; border: 1px solid #cfe0f6; background: #eef4fc; border-radius: 4px; padding: 2mm; text-align: center; font-size: 9.5pt; }
+.flow b { display: block; color: #2a7de1; font-size: 13pt; }
+.toc { columns: 2; column-gap: 10mm; padding-left: 0; list-style: none; }
+.toc li { margin-bottom: 1.5mm; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+.check li { list-style: "☐  "; }
+</style></head><body><div class="wrap">
+<section class="cover"><div class="logo"><i style="height:5mm"></i><i style="height:9mm"></i><i style="height:13mm"></i><i style="height:9mm"></i><i style="height:5mm"></i></div>
+<h1>Kokoro Reader</h1>
+<div class="sub">Getting Started User Manual</div>
+<p>Read text aloud, turn a video's speech into subtitles, translate English ↔ 繁體中文,
+and give the video a new voice. Everything runs on your own Windows laptop: no internet,
+no uploads, no account.</p>
+<div class="flow"><div><b>1</b>Transcribe</div><div><b>2</b>Translate</div><div><b>3</b>Review</div><div><b>4</b>Voice</div><div><b>5</b>Export</div></div>
+<div class="meta">Version 1.1 · ETINSTW · 繁體中文版：《Kokoro Reader 使用入門》</div>
+</section>
+
+<h2><span class="n">0</span>Contents</h2>
+<ol class="toc">
+<li>1 · Install</li><li>2 · Start and stop</li><li>3 · Read a text file aloud</li>
+<li>4 · Dub a video: overview</li><li>5 · Step 1 Transcribe</li><li>6 · Step 2 Translate</li>
+<li>7 · Step 3 Review</li><li>8 · The glossary</li><li>9 · Step 4 Voice</li>
+<li>10 · Step 5 Export</li><li>11 · A video that already has subtitles</li><li>12 · How long things take</li>
+<li>13 · Where files are kept</li><li>14 · Troubleshooting</li><li>15 · One-page checklist</li>
+</ol>
+<h3>What you can do</h3>
+<table><tr><th>You have</th><th>Kokoro Reader gives you</th><th>Go to</th></tr>
+<tr><td>A text file (.txt / .md)</td><td>The text read aloud with each word highlighted, saved as WAV or MP3</td><td>Section 3</td></tr>
+<tr><td>A video, English or Chinese</td><td>Subtitles, a translation you review line by line, and the video with a new voice in the other language</td><td>Sections 4–10</td></tr>
+<tr><td>A subtitle file (.srt) and its video</td><td>The same, starting from your subtitles</td><td>Section 11</td></tr></table>
+<div class="note"><b>Privacy:</b> all speech recognition, translation and voices are built into the program.
+Your videos and texts never leave your laptop.</div>
+
+<h2><span class="n">1</span>Install</h2>
+<p><b>You need:</b> Windows 10 or 11 (64-bit), about 5 GB free disk space, 16 GB RAM recommended
+(8 GB is fine for text and short videos). No administrator rights and no internet are needed.</p>
+<ol>
+<li>Copy <code>KokoroReader-Setup-1.1.1.exe</code> (about 2.8 GB) to your laptop and double-click it.</li>
+<li>If Windows shows <b>“Windows protected your PC”</b>, click <span class="ui">More info</span> → <span class="ui">Run anyway</span>.
+The installer is not signed with a company certificate; do this only for the installer you received from ETINSTW.</li>
+<li>Choose English or 繁體中文 for the installer, read the welcome page and click <span class="ui">Next</span>.</li>
+<li>Optionally tick <span class="ui">Create a desktop shortcut</span>, then click <span class="ui">Install</span>. Installing takes about 5–6 minutes.</li>
+<li>Leave <span class="ui">Start Kokoro Reader now</span> ticked and click <span class="ui">Finish</span>.</li>
+</ol>
+<p>Everything is included in the one installer: the program, Python, the English and Chinese voices,
+the speech-recognition models, the translation models and FFmpeg for video. Nothing is downloaded later.</p>
+<p>The Start menu gets three entries: <b>Kokoro Reader</b>, <b>Kokoro Reader – Getting Started</b> (this manual) and <b>Kokoro Reader – 使用入門</b> (the 繁體中文 manual).</p>
+
+<h2><span class="n">2</span>Start and stop</h2>
+<ol>
+<li>Open <b>Kokoro Reader</b> from the Start menu. It opens in your web browser at <code>127.0.0.1</code>,
+which is your own laptop, not a website.</li>
+<li><span class="ui">EN</span> / <span class="ui">繁中</span> at the top right switches the language of the screens.</li>
+<li><span class="ui">Getting started</span> opens a short version of this manual inside the app.</li>
+<li>When you finish, click <span class="ui">Quit</span>. If you only close the browser tab, the app stops by itself
+about 5 minutes later, but never while it is still working.</li>
+</ol>
+<figure><img src="img/en-01-welcome.png" alt=""><figcaption>The start screen. “Continue: …” brings back the last video you worked on.</figcaption></figure>
+<div class="note">Your work is saved as you go. After closing the app, open it again and click
+<span class="ui">Continue: &lt;video name&gt;</span> to carry on where you stopped.</div>
+<figure><img src="img/en-02-guide.png" alt=""><figcaption>Getting started inside the app: the same steps in short form, in English or 繁體中文.</figcaption></figure>
+
+<h2><span class="n">3</span>Read a text file aloud</h2>
+<ol>
+<li>Click <span class="ui">Open file</span> and choose a <code>.txt</code> or <code>.md</code> file.</li>
+<li>Choose the <b>Language</b> and <b>Voice</b>. Defaults: <code>af_bella</code> for English, <code>zm_009</code> for Chinese.
+Optionally set the tone, speed and pause between sentences.
+Hover over any label with a dashed underline for an explanation.</li>
+<li>Click <span class="ui">Generate</span>. The first time after starting the app it takes 30–40 seconds longer while the voice loads.</li>
+<li>Press ▶ to listen. Click any word to jump there. Save the audio as WAV or MP3 from the list of files under the player.</li>
+</ol>
+<figure><img src="img/en-13-text.png" alt=""><figcaption>Text mode: settings at the top, the text below, highlighted while it is read.</figcaption></figure>
+
+<h2><span class="n">4</span>Dub a video: overview</h2>
+<p>Click <span class="ui">Open video</span> and choose the video (MP4, MOV, MKV and most other formats).
+A bar of five steps appears and guides you from left to right:</p>
+<div class="flow"><div><b>1</b>Transcribe<br>speech → subtitles</div><div><b>2</b>Translate<br>EN ↔ 繁中</div><div><b>3</b>Review<br>check &amp; fix</div><div><b>4</b>Voice<br>new voice track</div><div><b>5</b>Export<br>save files</div></div>
+<ul>
+<li>The step you are on is <b style="color:#2a7de1">blue</b>. Finished steps turn <b style="color:#3d6b1f">green ✓</b>.
+Locked steps 🔒 open by themselves as soon as the step before is ready.</li>
+<li>Each step shows a blue instruction line explaining what to do, and <span class="ui">Back</span> / <span class="ui">Next</span> buttons at the bottom.</li>
+<li>Long videos are cut into chunks of about 5 minutes at natural pauses. You can review chunk 1
+while the later chunks are still being transcribed.</li>
+<li>The lower card has two tabs: <span class="ui">Review</span> (the table of lines) and <span class="ui">Play &amp; highlight</span> (watch the result).</li>
+</ul>
+<div class="warn">Keep the laptop plugged in and awake while it works. Long videos take a while (see section 12).
+<span class="ui">Stop</span> and <span class="ui">Resume</span> continue exactly where they left off, even after closing the app.</div>
+
+<h2><span class="n">5</span>Step 1 · Transcribe</h2>
+<p>Turns the speech in the video into time-coded subtitle lines.</p>
+<table><tr><th>Setting</th><th>Recommended</th><th>Why</th></tr>
+<tr><td>Spoken language</td><td>Auto</td><td>Detects English or Chinese by itself. Choose it yourself only if Auto guesses wrong.</td></tr>
+<tr><td>Chunk length</td><td>About 5 min</td><td>Lets you start reviewing early. “Whole video” is fine for clips under 10 minutes.</td></tr>
+<tr><td>Accuracy</td><td>Best</td><td>“Fast” is about twice as quick but makes more mistakes; use it for rough drafts.</td></tr></table>
+<ol><li>Check the settings and click <span class="ui">Start transcribing</span>.</li>
+<li>Watch the progress bar. As soon as the first chunk is done, step 2 opens; you don't have to wait for the rest.</li></ol>
+<figure><img src="img/en-03-step1.png" alt=""><figcaption>Step 1 when finished: 202 lines from a 14-minute video, 2.6× faster than real time.</figcaption></figure>
+
+<h2><span class="n">6</span>Step 2 · Translate</h2>
+<p>Each chunk is translated as soon as it is transcribed.</p>
+<ul>
+<li><b>Translate to</b> = <b>Automatic</b>: English videos become 繁體中文 (Taiwan wording); Chinese videos become English.</li>
+<li>Choose <b>Off — same language</b> if you only want to re-voice the video in its own language, for example to replace a poor recording.</li>
+<li><span class="ui">Translate again</span> redoes the translation, for example after you add many glossary terms.
+Lines you already edited by hand are kept.</li>
+</ul>
+<p>The translation works sentence by sentence, then spreads each sentence back over its subtitle lines,
+so the meaning stays whole even when a sentence is split over several lines.</p>
+<figure><img src="img/en-04-step2.png" alt=""><figcaption>Step 2: choose the direction; the progress shows how many chunks are translated.</figcaption></figure>
+
+<h2><span class="n">7</span>Step 3 · Review</h2>
+<p>This is where you make the translation right. The machine translation is literal; plan to fix some lines.</p>
+<figure><img src="img/en-05-step3.png" alt=""><figcaption>Step 3: the counters show how much is reviewed, flagged and edited.</figcaption></figure>
+<h3>The review table</h3>
+<figure><img src="img/en-06-review.png" alt=""><figcaption>The Review tab: video, chunk buttons, filters, and the original and translation side by side.</figcaption></figure>
+<ol>
+<li>Pick a chunk with the chunk buttons (for example <b>Chunk 1 · 0:00–5:07</b>).</li>
+<li>Click <span class="ui">⚠ Flagged</span> to see the lines most likely to need work first.</li>
+<li>Click a translation to edit it. <b>Enter</b> saves, <b>Esc</b> cancels.
+While editing you can also click <span class="ui">Re-translate</span> or <span class="ui">Undo edit</span> (back to the machine translation).</li>
+<li>▶ plays that line in the video so you can hear what was really said. ✎ edits the original text.</li>
+<li>Tick ✓ for each line that is right, or click <span class="ui">Mark chunk reviewed</span> when the whole chunk is done.</li>
+<li>Repeat for each chunk. <span class="ui">Not reviewed</span> shows what is left.</li>
+</ol>
+<h3>What the ⚠ marks mean</h3>
+<p>They are hints, not errors.</p>
+<table><tr><th>Mark</th><th>Meaning</th><th>What to do</th></tr>
+<tr><td>⤓ join</td><td>The sentence continues on the next line.</td><td>Click it to merge the two lines into one.</td></tr>
+<tr><td>long</td><td>The translation is probably too long to speak in the time available.</td><td>Shorten the wording.</td></tr>
+<tr><td>unsure</td><td>The transcriber was not sure about some words.</td><td>Press ▶, listen, and fix the original text (✎).</td></tr>
+<tr><td>late</td><td>After step 4: the new voice ran past the next line.</td><td>Shorten that line and generate the voice again.</td></tr></table>
+
+<h2><span class="n">8</span>The glossary: teach it your words once</h2>
+<p>Product names and technical terms are often translated wrongly. Fix them once in the glossary and every
+later video uses your terms. Glossary terms are underlined in green in the table.</p>
+<ol>
+<li>In the table, select the wrong word with the mouse.</li>
+<li>Right-click → the <b>Add to glossary</b> box opens with the word filled in.</li>
+<li>Type the correct term on the other side. Leave the Chinese side empty to keep a term in English
+(for example <i>FLIR Thermal Studio</i>).</li>
+<li>Click <span class="ui">Add + fix this line</span>, or <span class="ui">Add + re-translate all</span> to apply it to every line.</li>
+</ol>
+<figure><img src="img/en-07-popup.png" alt=""><figcaption>Right-click a selected word to add it to the glossary.</figcaption></figure>
+<p>The <span class="ui">Glossary</span> button lists all terms, where each came from and how often it is used.
+You can search, edit and delete terms. <span class="ui">Export .txt</span> and <span class="ui">Import .txt</span> let colleagues share one list.</p>
+<figure><img src="img/en-08-glossary.png" alt=""><figcaption>The glossary window.</figcaption></figure>
+
+<h2><span class="n">9</span>Step 4 · Voice</h2>
+<p>Makes the new voice track and puts it into the video.</p>
+<ol>
+<li>Check the <b>Voice</b>: <code>zm_009</code> (Chinese, male) or <code>af_bella</code> (English, female) by default; other voices are in the list.</li>
+<li>Leave <b>Voice reads</b> = Translation, <b>Fit to timing</b> = Speed up + use gaps, <b>Max speed-up</b> = 1.25×.</li>
+<li><b>Original audio</b> = <b>Replace — new voice only</b> (default). The video's old sound is removed and only the
+new voice remains, so you never hear two voices at once. Background music is removed too.</li>
+<li>Click <span class="ui">Generate voice</span>. The time meter shows progress; <b>Lines fit</b> shows how many lines fit their time slot.</li>
+<li>Open the <span class="ui">Play &amp; highlight</span> tab and watch the result.</li>
+</ol>
+<figure><img src="img/en-10-step4-done.png" alt=""><figcaption>Step 4 when finished: 8 of 10 lines fit; the 2 late lines are marked in the review table.</figcaption></figure>
+<figure><img src="img/en-12-play.png" alt=""><figcaption>Play &amp; highlight: the video with its new voice, and the text highlighted as it is spoken.</figcaption></figure>
+<div class="note">If some lines run late, go back to step 3, filter ⚠ Flagged, shorten the lines marked <b>late</b>,
+and generate the voice again. Raising <b>Max speed-up</b> to 1.4× is a quicker fix but sounds hurried.</div>
+
+<h2><span class="n">10</span>Step 5 · Export</h2>
+<p>Tick the files you need and click <span class="ui">Save selected</span>, or <span class="ui">Save</span> on one row.
+Files are named after the video and go to your Downloads folder.</p>
+<table><tr><th>File</th><th>Example name</th><th>Use it for</th></tr>
+<tr><td>Video with new voice (MP4)</td><td><code>video.zh-TW.mp4</code></td><td>The finished dubbed video</td></tr>
+<tr><td>Voice only (WAV)</td><td><code>video.zh-TW.wav</code></td><td>Editing in another video program</td></tr>
+<tr><td>New subtitles, re-timed to the voice</td><td><code>video.zh-TW.srt</code></td><td>Subtitles for the dubbed video</td></tr>
+<tr><td>Original subtitles</td><td><code>video.en.srt</code></td><td>Subtitles for the original video</td></tr>
+<tr><td>Bilingual subtitles</td><td><code>video.en+zh-TW.srt</code></td><td>Both languages on each line, for checking or training</td></tr></table>
+<figure><img src="img/en-11-step5.png" alt=""><figcaption>Step 5: the three most-used files are ticked for you.</figcaption></figure>
+
+<h2><span class="n">11</span>A video that already has subtitles</h2>
+<p>If you already have a good <code>.srt</code> for the video, skip transcription:</p>
+<ol>
+<li>Click <span class="ui">Open file</span> and choose the <code>.srt</code>. The app starts at step 2.</li>
+<li>Click <span class="ui">Open video</span> and choose the matching video (needed for steps 3–5).</li>
+<li>Continue with steps 2 to 5 as usual.</li>
+</ol>
+
+<h2><span class="n">12</span>How long things take</h2>
+<p>Measured on an ETINSTW laptop (Intel Core Ultra 7, no graphics card needed):</p>
+<table><tr><th>Work</th><th>14-minute video</th><th>1-hour video (estimate)</th></tr>
+<tr><td>Step 1 Transcribe (Best)</td><td>about 6 min</td><td>about 25–30 min</td></tr>
+<tr><td>Step 2 Translate</td><td>under 10 s</td><td>under 1 min</td></tr>
+<tr><td>Step 4 Chinese voice</td><td>about 11 min</td><td>about 1 hour</td></tr>
+<tr><td>Step 4 English voice</td><td>about 8 min</td><td>about 40 min</td></tr></table>
+<p>The first voice after starting the app adds 30–80 seconds while the voice model loads.
+Review time depends on you: plan roughly 10–20 minutes per 5-minute chunk the first time; less as your glossary grows.</p>
+<div class="note"><b>Tip for long videos:</b> start transcription, then review each chunk as it becomes ready.
+Generate the voice at the end of the day or over lunch.</div>
+
+<h2><span class="n">13</span>Where files are kept</h2>
+<table><tr><th>What</th><th>Where</th></tr>
+<tr><td>Files you save in step 5 or text mode</td><td>Your Downloads folder</td></tr>
+<tr><td>Work in progress, the glossary, a log file</td><td><code>%LOCALAPPDATA%\KokoroReader</code></td></tr>
+<tr><td>The program and this manual</td><td><code>%LOCALAPPDATA%\Programs\Kokoro Reader</code></td></tr></table>
+<div class="warn"><b>Uninstalling</b> (Windows Settings → Apps → Kokoro Reader → Uninstall) removes the program
+<b>and</b> the work folder, including your glossary. Click <span class="ui">Glossary</span> → <span class="ui">Export .txt</span> first if you want to keep it.
+Installing a newer version over the old one keeps your work and glossary.</div>
+
+<h2><span class="n">14</span>Troubleshooting</h2>
+<table><tr><th>Problem</th><th>What to do</th></tr>
+<tr><td>Windows blocks the installer</td><td><span class="ui">More info</span> → <span class="ui">Run anyway</span> (section 1).</td></tr>
+<tr><td>Nothing seems to happen after Start transcribing or Generate</td><td>The first load can take up to a minute. Watch the progress text.</td></tr>
+<tr><td>The page says the app has stopped</td><td>Open Kokoro Reader from the Start menu again and click <span class="ui">Continue: …</span>.</td></tr>
+<tr><td>Step 5 is empty after reopening the app</td><td>The voice is not kept after quitting. Go to step 4 and click <span class="ui">Generate voice</span> again; your edits are kept.</td></tr>
+<tr><td>The voice runs late on some lines</td><td>Shorten those lines in step 3, or raise Max speed-up in step 4.</td></tr>
+<tr><td>Product names are translated wrongly</td><td>Add them to the glossary once (section 8).</td></tr>
+<tr><td>A Chinese word is pronounced oddly</td><td>A known limit of the Chinese voice. Rephrase the line, or write a brand name in English.</td></tr>
+<tr><td>The wrong language was detected</td><td>Open the video again and set Spoken language yourself in step 1.</td></tr>
+<tr><td>Anything else</td><td>Send the file <code>%LOCALAPPDATA%\KokoroReader\kokoro-reader.log</code> to the person who gave you the installer.</td></tr></table>
+
+<h2><span class="n">15</span>One-page checklist</h2>
+<div class="two"><div>
+<h3>Dub a video</h3>
+<ul class="check">
+<li><span class="ui">Open video</span></li>
+<li>Step 1: Auto · About 5 min · Best → <span class="ui">Start transcribing</span></li>
+<li>Step 2: Automatic</li>
+<li>Step 3: per chunk → ⚠ Flagged first → edit → ✓ → <span class="ui">Mark chunk reviewed</span></li>
+<li>Wrong term? Select → right-click → Add to glossary</li>
+<li>Step 4: check voice · Original audio = Replace → <span class="ui">Generate voice</span></li>
+<li>Watch in <span class="ui">Play &amp; highlight</span>; fix late lines, generate again</li>
+<li>Step 5: tick files → <span class="ui">Save selected</span></li>
+<li><span class="ui">Quit</span></li>
+</ul></div><div>
+<h3>Read a text aloud</h3>
+<ul class="check">
+<li><span class="ui">Open file</span> → .txt / .md</li>
+<li>Language and voice</li>
+<li><span class="ui">Generate</span></li>
+<li>▶ listen · click a word to jump</li>
+<li>Save WAV / MP3</li>
+<li><span class="ui">Quit</span></li>
+</ul>
+<h3>Keyboard in the review table</h3>
+<ul><li><b>Enter</b>: save the edit</li><li><b>Esc</b>: cancel the edit or close the glossary box</li></ul>
+</div></div>
+</div></body></html>

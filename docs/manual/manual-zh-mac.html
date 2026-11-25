@@ -1,0 +1,82 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Kokoro Reader – Mac 安裝說明</title><style>
+@page { size: A4; margin: 16mm 15mm 16mm 15mm; }
+* { box-sizing: border-box; }
+body { font-family: "Segoe UI", "Microsoft JhengHei UI", "Microsoft JhengHei", sans-serif; color: #1d1d1b;
+       font-size: 10.5pt; line-height: 1.55; margin: 0; background: #fff; }
+.wrap { max-width: 180mm; margin: 0 auto; }
+h1 { font-size: 26pt; margin: 0 0 4mm; letter-spacing: -0.5px; }
+h2 { font-size: 16pt; margin: 0 0 3mm; padding-top: 1mm; break-before: page; color: #14365f; }
+h2 .n { display: inline-block; min-width: 9mm; color: #2a7de1; }
+h3 { font-size: 12pt; margin: 6mm 0 2mm; color: #14365f; break-after: avoid; }
+p { margin: 0 0 2.5mm; }
+ol, ul { margin: 0 0 3mm; padding-left: 6mm; }
+li { margin: 0 0 1.2mm; }
+b, strong { font-weight: 600; }
+code { font-family: Consolas, monospace; font-size: 9.5pt; background: #f1efe9; padding: 0 1mm; border-radius: 2px; }
+.ui { font-weight: 600; background: #eef4fc; border: 1px solid #cfe0f6; border-radius: 3px; padding: 0 1.2mm; white-space: nowrap; }
+figure { margin: 3mm 0 4mm; break-inside: avoid; }
+figure img { width: 100%; border: 1px solid #d9d6cc; border-radius: 6px; display: block; }
+figcaption { font-size: 9pt; color: #6b6a63; margin-top: 1.2mm; }
+table { border-collapse: collapse; width: 100%; margin: 2mm 0 4mm; font-size: 9.8pt; break-inside: avoid; }
+th, td { border: 1px solid #d9d6cc; padding: 1.6mm 2.2mm; text-align: left; vertical-align: top; }
+th { background: #f1efe9; font-weight: 600; }
+.note { border-left: 3px solid #2a7de1; background: #eef4fc; padding: 2.2mm 3mm; margin: 3mm 0; break-inside: avoid; }
+.warn { border-left: 3px solid #d08a00; background: #fdf5e4; padding: 2.2mm 3mm; margin: 3mm 0; break-inside: avoid; }
+.cover { height: 250mm; display: flex; flex-direction: column; justify-content: center; }
+.cover .logo { width: 22mm; height: 22mm; border-radius: 5mm; background: #0f7b80; display: flex; align-items: center;
+               justify-content: center; gap: 1.6mm; margin-bottom: 8mm; }
+.cover .logo i { display: block; width: 1.6mm; background: #fff; border-radius: 1mm; }
+.cover .sub { font-size: 14pt; color: #4b4a45; margin-bottom: 10mm; }
+.cover .meta { color: #6b6a63; font-size: 10pt; margin-top: 10mm; }
+.flow { display: flex; gap: 2mm; margin: 4mm 0; }
+.flow div { flex: 1; border: 1px solid #cfe0f6; background: #eef4fc; border-radius: 4px; padding: 2mm; text-align: center; font-size: 9.5pt; }
+.flow b { display: block; color: #2a7de1; font-size: 13pt; }
+.toc { columns: 2; column-gap: 10mm; padding-left: 0; list-style: none; }
+.toc li { margin-bottom: 1.5mm; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+.check li { list-style: "☐  "; }
+</style></head><body><div class="wrap">
+<div style="display:flex;align-items:center;gap:6mm;margin-bottom:4mm"><div class="cover" style="height:auto"><div class="logo"><i style="height:5mm"></i><i style="height:9mm"></i><i style="height:13mm"></i><i style="height:9mm"></i><i style="height:5mm"></i></div></div>
+<div><h1 style="margin:0">在 Mac 上使用 Kokoro Reader</h1><div style="color:#4b4a45">安裝說明 · 版本 1.1.1 ·
+English: “Kokoro Reader - Mac install”</div></div></div>
+<p>Mac 版的操作方式與《Kokoro Reader - 使用入門.pdf》所介紹的 Windows 版完全相同。
+本說明只介紹不同之處：安裝、啟動，以及檔案存放位置。</p>
+<p><b>需求：</b>搭載 Apple 晶片（M1 或更新；在 Apple 選單 → 關於這台 Mac → 晶片 查看）的 Mac、macOS 14 Sonoma 或更新版本，
+安裝時約需 9 GB 可用空間（安裝後佔用 6 GB）。處理長影片建議使用 16 GB 記憶體。</p>
+
+<h3>安裝（只需一次）</h3>
+<ol>
+<li>按兩下 <code>KokoroReader-Setup-1.1.1-macOS.zip</code>（約 3 GB），旁邊會出現資料夾 <b>Kokoro Reader 1.1.1</b>。</li>
+<li>把資料夾中的 <b>Kokoro Reader.app</b> 拖到 <b>「應用程式」</b>。請不要略過這一步：程式無法從「下載項目」資料夾啟動。</li>
+<li>打開「應用程式」，按兩下 <b>Kokoro Reader</b>。因為它不是來自 App Store，macOS 會說無法檢查此 App。
+按 <span class="ui">完成</span>（macOS 14：<span class="ui">好</span>）。</li>
+<li>打開 <span class="ui">系統設定</span> → <span class="ui">隱私權與安全性</span>，往下捲到關於 Kokoro Reader 的訊息，按 <span class="ui">強制打開</span>。
+輸入密碼或使用 Touch ID 確認，再按一次 <span class="ui">強制打開</span>。</li>
+<li>畫面會出現「啟動中…」通知，接著 Kokoro Reader 會在預設瀏覽器中開啟。第一次啟動最多需要兩分鐘，之後會快很多。</li>
+</ol>
+<div class="note">只需要允許一次。之後在「應用程式」中按兩下即可，或用 Spotlight（<b>Cmd + 空白鍵</b>，輸入 <i>Kokoro</i>）。</div>
+<div class="warn"><b>仍然被阻擋，或又出現關於「python3.12」或「.dylib」檔案的警告？</b>
+請打開 <b>終端機</b>（應用程式 → 工具程式），貼上下面這一行並按 Return，然後再開啟 Kokoro Reader：<br>
+<code>xattr -dr com.apple.quarantine "/Applications/Kokoro Reader.app"</code></div>
+
+<h3>與 Windows 版的差異</h3>
+<table><tr><th>項目</th><th>在 Mac 上</th></tr>
+<tr><td>啟動</td><td>在「應用程式」中按兩下 Kokoro Reader。Dock 上不會出現圖示，程式在瀏覽器分頁中運作。
+程式執行中再開啟一次，會重新顯示頁面。</td></tr>
+<tr><td>結束</td><td>按頁面上方的 <span class="ui">結束</span>，或關閉分頁（約 5 分鐘後會自動停止）。</td></tr>
+<tr><td>工作、詞彙表、記錄檔</td><td><code>~/Library/Application Support/KokoroReader</code><br>Finder → 前往 → 前往檔案夾…，貼上這個路徑。</td></tr>
+<tr><td>程式本身</td><td><code>/Applications/Kokoro Reader.app</code>（內含所有語音與模型，可離線使用）</td></tr>
+<tr><td>儲存的 WAV / MP3 / SRT / MP4</td><td>瀏覽器的下載資料夾，通常是 <b>「下載項目」</b>。</td></tr>
+<tr><td>速度</td><td>尚未在 Mac 上實測；大致可參考《使用入門》第 12 節的時間。</td></tr></table>
+
+<h3>解除安裝</h3>
+<p>把 Kokoro Reader 從「應用程式」拖到垃圾桶。若要一併刪除您的工作與詞彙表，請刪除
+<code>~/Library/Application Support/KokoroReader</code> 和 <code>~/Library/Caches/KokoroReader</code>。</p>
+
+<h3>常見問題</h3>
+<table><tr><th>您看到</th><th>處理方式</th></tr>
+<tr><td>「請先把 Kokoro Reader 拖到『應用程式』資料夾」</td><td>完成第 2 步，再從「應用程式」開啟。</td></tr>
+<tr><td>「需要搭載 Apple 晶片的 Mac」／「需要 macOS 14」</td><td>這台 Mac 無法執行 Kokoro Reader，請改用較新的 Mac 或 Windows 版。</td></tr>
+<tr><td>兩分鐘後仍沒有開啟</td><td>在瀏覽器開啟 <code>http://127.0.0.1:7860</code>。若仍無法使用，請把
+<code>~/Library/Application Support/KokoroReader/kokoro-reader.log</code> 傳給提供 Kokoro Reader 的人。</td></tr></table>
+</div></body></html>
