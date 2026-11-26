@@ -10,7 +10,9 @@ alert() {  # $1 = message (English / 繁中)
   /usr/bin/osascript -e "display dialog \"$1\" with title \"Kokoro Reader\" buttons {\"OK\"} default button 1 with icon caution" >/dev/null 2>&1
 }
 
-if [ "$(/usr/bin/uname -m)" != "arm64" ]; then
+# macOS may run this script under Rosetta, where `uname -m` says x86_64 even on an M-series Mac.
+# hw.optional.arm64 reports the real chip in both cases (1 on Apple silicon, missing or 0 on Intel).
+if [ "$(/usr/sbin/sysctl -n hw.optional.arm64 2>/dev/null)" != "1" ]; then
   alert "Kokoro Reader needs a Mac with Apple silicon (M1 or later).\n\nKokoro Reader 需要搭載 Apple 晶片（M1 或更新）的 Mac。"
   exit 1
 fi
@@ -33,6 +35,6 @@ fi
 export PYTHONNOUSERSITE=1
 export PYTHONPYCACHEPREFIX="$HOME/Library/Caches/KokoroReader/pycache"
 /usr/bin/osascript -e 'display notification "Starting… the browser opens in a moment. 啟動中…瀏覽器稍後會開啟。" with title "Kokoro Reader"' >/dev/null 2>&1 &
-nohup "$PY" "$RES/app/launcher.pyw" >/dev/null 2>&1 &
+nohup /usr/bin/arch -arm64 "$PY" "$RES/app/launcher.pyw" >/dev/null 2>&1 &
 disown
 exit 0
